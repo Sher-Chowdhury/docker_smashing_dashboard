@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM ruby:2.5.3-alpine3.8
 # used the following as an example: https://github.com/rgcamus/dockerfile-alpine_smashing
 # https://docs.docker.com/engine/reference/builder/
 # https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
@@ -15,14 +15,14 @@ RUN apk add \
   curl \
   wget \
   bash \
-  ruby \
-  ruby-bundler \
   nodejs \
   gcc \
   pkgconfig \
   curl-dev \
   imagemagick6 \
   imagemagick6-dev \
+  ruby \
+  ruby-bundler \
   ruby-dev \
   zlib \
   zlib-dev
@@ -31,7 +31,7 @@ RUN apk add \
 RUN apk add ruby-dev g++ musl-dev make \
     && echo "gem: --no-document" > /etc/gemrc
 
-RUN gem install bundler -v 1.17.3
+RUN gem install bundler #-v 1.17.3
 
 
 RUN mkdir /bundler
